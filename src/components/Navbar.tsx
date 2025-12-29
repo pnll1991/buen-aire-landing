@@ -90,22 +90,32 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="relative text-sm font-semibold text-gray-700 hover:text-[#0B5ED7] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-gradient-to-r after:from-[#0B5ED7] after:to-[#084BB0] after:transition-transform after:duration-300 hover:after:scale-x-100"
+                className="relative text-sm font-semibold text-gray-700 hover:text-[#0B5ED7] transition-colors duration-200 ease-out group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-gradient-to-r from-[#0B5ED7] to-[#084BB0] transition-transform duration-300 ease-out group-hover:scale-x-100" />
               </Link>
             ))}
 
-            <motion.a
-              href={site.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center justify-center rounded-2xl bg-[#0B5ED7] px-4 py-2 text-sm font-semibold text-white shadow-premium"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              WhatsApp
-            </motion.a>
+            <div className="relative group/tooltip">
+              <motion.a
+                href={site.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center justify-center rounded-2xl bg-[#0B5ED7] px-4 py-2 text-sm font-semibold text-white shadow-premium"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                WhatsApp
+              </motion.a>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                <div className="relative bg-white rounded-2xl px-3 py-2 shadow-lg border-2 border-gray-200 whitespace-nowrap">
+                  <p className="text-xs font-semibold text-gray-800">Hace tu consulta, es gratis</p>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-full w-0 h-0 border-l-[8px] border-r-[8px] border-b-[8px] border-l-transparent border-r-transparent border-b-white"></div>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[calc(100%-1px)] w-0 h-0 border-l-[9px] border-r-[9px] border-b-[9px] border-l-transparent border-r-transparent border-b-gray-200"></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="md:hidden">
             <button
