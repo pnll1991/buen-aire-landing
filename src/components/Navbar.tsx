@@ -64,54 +64,36 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav 
-      className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b border-gray-200/60"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-    >
+    <nav className="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-xl border-b border-gray-200/60">
       <div className="h-[2px] w-full bg-transparent">
-        <motion.div
-          className="h-[2px] bg-gradient-to-r from-[#0B5ED7] to-[#084BB0]"
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.15, ease: "linear" }}
+        <div
+          className="h-[2px] bg-gradient-to-r from-[#0B5ED7] to-[#084BB0] transition-[width] duration-150 ease-linear"
+          style={{ width: `${progress}%` }}
         />
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="hover:opacity-90 transition-opacity active:scale-95"
+            aria-label={`${site.businessName} - Inicio`}
           >
-            <Link
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="hover:opacity-90 transition-opacity"
-              aria-label={`${site.businessName} - Inicio`}
-            >
-              {Brand}
-            </Link>
-          </motion.div>
+            {Brand}
+          </Link>
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link, index) => (
-              <motion.div
+            {navLinks.map((link) => (
+              <Link
                 key={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.3 }}
+                href={link.href}
+                onClick={(e) => handleScroll(e, link.href)}
+                className="relative text-sm font-semibold text-gray-700 hover:text-[#0B5ED7] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-gradient-to-r after:from-[#0B5ED7] after:to-[#084BB0] after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
-                <Link
-                  href={link.href}
-                  onClick={(e) => handleScroll(e, link.href)}
-                  className="relative text-sm font-semibold text-gray-700 hover:text-[#0B5ED7] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-gradient-to-r after:from-[#0B5ED7] after:to-[#084BB0] after:transition-transform after:duration-300 hover:after:scale-x-100"
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
+                {link.label}
+              </Link>
             ))}
 
             <motion.a
@@ -121,20 +103,16 @@ export default function Navbar() {
               className="btn-primary inline-flex items-center justify-center rounded-2xl bg-[#0B5ED7] px-4 py-2 text-sm font-semibold text-white shadow-premium"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
             >
               WhatsApp
             </motion.a>
           </div>
           <div className="md:hidden">
-            <motion.button
-              className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-3 py-2 text-gray-800 shadow-sm hover:bg-white transition-colors"
+            <button
+              className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-3 py-2 text-gray-800 shadow-sm hover:bg-white transition-colors active:scale-95"
               aria-label="Menú"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((v) => !v)}
-              whileTap={{ scale: 0.95 }}
             >
               <motion.svg 
                 className="w-6 h-6" 
@@ -146,7 +124,7 @@ export default function Navbar() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </motion.svg>
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>
@@ -162,27 +140,21 @@ export default function Navbar() {
           >
             <div className="container mx-auto px-4 py-3">
               <div className="grid gap-1">
-                {navLinks.map((link, index) => (
-                  <motion.div
+                {navLinks.map((link) => (
+                  <Link
                     key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                    href={link.href}
+                    onClick={(e) => handleScroll(e, link.href)}
+                    className="rounded-lg px-3 py-3 text-sm font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0B5ED7] transition-colors block"
                   >
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleScroll(e, link.href)}
-                      className="rounded-lg px-3 py-3 text-sm font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0B5ED7] transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }
