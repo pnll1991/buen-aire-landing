@@ -74,7 +74,10 @@ export default function LightboxModal({
               alt={work.alt}
               fill
               className="object-contain"
+              quality={100}
               priority
+              sizes="100vw"
+              unoptimized={false}
             />
           </div>
           <div className="p-6 bg-white">

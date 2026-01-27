@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import TrustBento from "@/components/TrustBento";
 import InstalledStats from "@/components/InstalledStats";
 import Services from "@/components/Services";
 import Benefits from "@/components/Benefits";
@@ -20,15 +19,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SectionWave />
-      <TrustBento />
-      <SectionWave className="-mt-2" />
       <InstalledStats />
+      <SectionWave className="-mt-2" />
+      <Gallery />
       <SectionWave className="-mt-2" />
       <Services />
       <SectionWave className="-mt-2" />
       <Benefits />
-      <SectionWave className="-mt-2" />
-      <Gallery />
       <SectionWave className="-mt-2" />
       <Testimonials />
       <SectionWave className="-mt-2" />

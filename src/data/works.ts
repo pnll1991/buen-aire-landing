@@ -25,21 +25,21 @@ export const workCategories: WorkCategory[] = [
 export const works: WorkItem[] = [
   {
     id: "inst-01",
-    src: "/works/instalacion-01.webp",
+    src: "/works/instalacion-01.png",
     alt: "Instalación de aire acondicionado split",
     caption: "Instalación split — interior + exterior (nivelación y terminaciones)",
     category: "Instalaciones",
   },
   {
     id: "inst-02",
-    src: "/works/instalacion-exterior-01.webp",
+    src: "/works/instalacion-exterior-01.png",
     alt: "Instalación de aire acondicionado en balcón",
     caption: "Instalación en balcón — pasamuros prolijo y fijación segura",
     category: "Instalaciones",
   },
   {
     id: "mant-01",
-    src: "/works/mantenimiento-01.webp",
+    src: "/works/mantenimiento-01.png",
     alt: "Mantenimiento y limpieza de unidad interior",
     caption: "Mantenimiento — limpieza de filtros y evaporador",
     category: "Mantenimiento",

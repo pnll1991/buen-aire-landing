@@ -65,7 +65,7 @@ export default function Hero() {
                     href={site.whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary group inline-flex items-center justify-center px-7 py-4 bg-[#0B5ED7] text-white font-semibold rounded-2xl hover:bg-[#084BB0] transition-all shadow-lg hover:shadow-xl"
+                    className="btn-primary group inline-flex items-center justify-center w-full sm:w-auto px-7 py-4 bg-[#0B5ED7] text-white font-semibold rounded-2xl hover:bg-[#084BB0] transition-all shadow-lg hover:shadow-xl"
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -85,11 +85,12 @@ export default function Hero() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto"
                   >
                     <Link
                       href="#trabajos"
                       onClick={handleScroll}
-                      className="inline-flex items-center justify-center px-7 py-4 bg-white/80 backdrop-blur text-gray-900 font-semibold rounded-2xl border border-slate-200/70 hover:bg-white transition-all shadow-sm hover:shadow-md"
+                      className="inline-flex items-center justify-center w-full px-7 py-4 bg-white/80 backdrop-blur text-gray-900 font-semibold rounded-2xl border border-slate-200/70 hover:bg-white transition-all shadow-sm hover:shadow-md"
                     >
                       Ver trabajos
                     </Link>
